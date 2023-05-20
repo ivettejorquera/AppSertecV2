@@ -1,0 +1,64 @@
+<ion-content>
+  <div *ngIf="!uid.length">
+    <ion-item>
+      <ion-label class="normal" position="floating">Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="perfilClie.nombre" name="nombre" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">Celular</ion-label>
+      <ion-input type="tel" [(ngModel)]="perfilClie.celular" name="telefono" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="perfilClie.email" name="email" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal" position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="perfilClie.password" name="password" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="normal">
+        Foto:
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <label for="file-upload">
+            <ion-icon slot="icon-only" name="images"></ion-icon>
+          </label>
+          <input (change)="newImageUpload($event)" id="file-upload" style="display: none" type="file" accept="image/*">
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item>
+      <img class="image" [src]="perfilClie.foto">
+    </ion-item>
+    <div style="text-align: end; margin: 10px;">
+      <ion-button class="normal" (click)="ingresar()">Ingresar</ion-button>
+      <ion-button class="normal" (click)="registrarse()">Registrarse</ion-button>
+    </div>
+
+  </div>
+  <div *ngIf="uid.length" >
+    <div class="flex-center">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title color="success">App Sertec</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label class="normal" position="floating">Email</ion-label>
+            <ion-input type="text" [(ngModel)]="perfilClie.email" name="email" inputmode="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label class="normal" position="floating">Password</ion-label>
+            <ion-input type="text" [(ngModel)]="perfilClie.password" name="password" inputmode="text"></ion-input>
+          </ion-item>
+          <div style="text-align: center; margin: 10px;">
+            <ion-button size="full" class="normal" color="secondary" (click)="ingresar()">Iniciar Sesión</ion-button>
+            <ion-button class="normal" fill="clear" (click)="registrarse()">Registrarse</ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

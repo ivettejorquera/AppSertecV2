@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ClienteComponent } from './cliente/cliente.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
 
-import { HomePageRoutingModule } from './home-routing.module';
 
 
 @NgModule({
+  declarations: [
+    ClienteComponent,
+  ],
   imports: [
     CommonModule,
-    FormsModule,
     IonicModule,
-    HomePageRoutingModule
-  ],
-  declarations: [HomePage]
+    FormsModule,
+  ]
 })
-export class HomePageModule {}
+export class BackendModule { }

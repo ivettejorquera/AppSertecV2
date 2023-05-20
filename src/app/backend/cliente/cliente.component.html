@@ -1,0 +1,49 @@
+
+<ion-content>
+  <h3 class="encabezado">Listado de Clientes</h3>
+  <div style="text-align: end; margin: 10px;">
+    <ion-button (click)="nuevoCliente()" class="color">Agregar Nuevo Cliente</ion-button>
+  </div>
+
+  <div *ngIf="enableNewCliente">
+    <ion-item>
+      <ion-buttons>
+        <ion-button (click)="enableNewCliente = false">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <h3 class="encabezado">Ingrese los datos</h3>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text"  [(ngModel)]="newCliente.nombre" inputmode="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Dirección</ion-label>
+      <ion-input type="text"  [(ngModel)]="newCliente.direccion" inputmode="text" ></ion-input>
+    </ion-item>
+    <ion-item> 
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="newCliente.correo" inputmode="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Télefono</ion-label>
+      <ion-input type="tel" [(ngModel)]="newCliente.numero" inputmode="numeric" ></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="guardarCliente()">Guardar Cliente</ion-button>
+  </div>
+
+<ion-item *ngFor="let cliente of clientes">
+  <ion-label>{{cliente.nombre}}</ion-label>
+  <ion-buttons slot="end">
+    <ion-button (click)="newCliente = cliente; enableNewCliente = true">
+      <ion-icon  color="success" name="create-sharp"></ion-icon>
+    </ion-button>
+    <ion-button (click)="eliminarCliente(cliente)">
+      <ion-icon color="danger" name="trash-bin"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-item>
+
+
+</ion-content>
